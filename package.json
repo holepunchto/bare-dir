@@ -1,0 +1,49 @@
+{
+  "name": "bare-dir",
+  "version": "0.0.0",
+  "description": "Capability based directory access for Bare",
+  "exports": {
+    "./package": "./package.json",
+    ".": {
+      "types": "./index.d.ts",
+      "default": "./index.js"
+    }
+  },
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "binding.c",
+    "binding.js",
+    "CMakeLists.txt",
+    "lib",
+    "prebuilds"
+  ],
+  "addon": true,
+  "scripts": {
+    "format": "prettier --write . && lunte --fix",
+    "lint": "prettier --check . && lunte",
+    "test": "brittle-bare --coverage test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/holepunchto/bare-dir.git"
+  },
+  "author": "Holepunch",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/holepunchto/bare-dir/issues"
+  },
+  "homepage": "https://github.com/holepunchto/bare-dir#readme",
+  "devDependencies": {
+    "bare-fs": "^4.4.4",
+    "bare-os": "^3.9.3",
+    "bare-path": "^3.0.0",
+    "bare-subprocess": "^6.2.1",
+    "brittle": "^3.1.1",
+    "cmake-bare": "^1.1.6",
+    "cmake-fetch": "^1.5.3",
+    "lunte": "^1.6.0",
+    "prettier": "^3.4.2",
+    "prettier-config-holepunch": "^2.0.0"
+  }
+}
