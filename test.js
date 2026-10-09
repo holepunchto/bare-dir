@@ -348,7 +348,7 @@ test('an invalid name that reaches the native layer stops the process', (t) => {
 
   const result = spawnSync(os.execPath(), ['-e', source])
 
-  // Aborting exits with STATUS_STACK_BUFFER_OVERRUN on Windows.
+  // Failing fast exits with STATUS_STACK_BUFFER_OVERRUN on Windows.
   if (isWindows) t.is(result.status, 0xc0000409)
   else t.is(result.signal, 'SIGABRT')
   t.ok(result.stderr.toString().includes('bare-dir: an invalid name reached the native layer'))
