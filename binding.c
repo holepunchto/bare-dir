@@ -116,7 +116,13 @@ static void
 bare_dir__invalid_name(void) {
   fprintf(stderr, "bare-dir: an invalid name reached the native layer\n");
 
+#ifdef _WIN32
+  // The debug runtime reports abort() in a dialog that blocks until someone
+  // dismisses it, so the process is ended on the spot instead.
+  __fastfail(FAST_FAIL_FATAL_APP_EXIT);
+#else
   abort();
+#endif
 }
 
 static js_value_t *
